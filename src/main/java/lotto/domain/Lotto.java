@@ -1,8 +1,12 @@
 package lotto.domain;
 
+import java.util.HashSet;
 import java.util.List;
+import lotto.ErrorMessage;
 
 public class Lotto {
+
+    private static final int LOTTO_SIZE = 6;
 
     private final List<Integer> numbers;
 
@@ -12,12 +16,13 @@ public class Lotto {
     }
 
     private void validate(List<Integer> numbers) {
-        if (numbers.size() != 6) {
-            throw new IllegalArgumentException("[ERROR] 로또 번호는 6개여야 합니다.");
+        if (numbers.size() != LOTTO_SIZE) {
+            throw new IllegalArgumentException();
+        }
+        if (new HashSet<>(numbers).size() != LOTTO_SIZE) {
+            throw new IllegalArgumentException(ErrorMessage.DUPLICATE_LOTTO_NUMBERS.getValue());
         }
     }
-
-    // TODO: 추가 기능 구현
 
     public boolean contains(int number) {
         return numbers.contains(number);
