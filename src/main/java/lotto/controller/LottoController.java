@@ -1,6 +1,7 @@
 package lotto.controller;
 
 import java.util.List;
+import lotto.BonusNumber;
 import lotto.Lotto;
 import lotto.Money;
 import lotto.Parser;
@@ -12,8 +13,7 @@ public class LottoController {
         Money money = readMoney();
 
         Lotto winningLotto = readLotto();
-
-        String bonusNumber = InputView.inputBonusLottoNumber();
+        BonusNumber bonusNumber = readBonusLottoNumber(winningLotto);
     }
 
     private Money readMoney() {
@@ -29,12 +29,31 @@ public class LottoController {
     }
 
     private Lotto readLotto() {
+        while (true) {
+            try {
+                String lotto = InputView.inputWinningLotto();
 
+                Parser parse = new Parser();
+                List<Integer> lottoNumbers = parse.parseToLotto(lotto);
+
+                return new Lotto(lottoNumbers);
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+
+        }
     }
 
-    private static void validateLottoFormat(String input) {
+    private BonusNumber readBonusLottoNumber(Lotto winningLotto) {
+        while (true) {
+            try {
+                String lottoNumber = InputView.inputBonusLottoNumber();
 
+                return new BonusNumber(lottoNumber, winningLotto);
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
-
 
 }
