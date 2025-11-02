@@ -53,7 +53,6 @@ public class LottoController {
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
-
         }
     }
 

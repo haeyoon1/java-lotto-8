@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.TreeSet;
-import lotto.ErrorMessage;
+import lotto.error.ErrorMessage;
 import lotto.util.LottoGenerator;
 
 public class Lotto {
@@ -36,13 +36,13 @@ public class Lotto {
         return new Lotto(new ArrayList<>(sortedLotto));
     }
 
-    public int matchCount(Lotto winningLotto){
+    public int matchCount(Lotto winningLotto) {
         return (int) numbers.stream()
             .filter(winningLotto::contains)
             .count();
     }
 
-    public boolean matchBonusLotto(BonusNumber bonusNumber){
+    public boolean matchBonusLotto(BonusNumber bonusNumber) {
         return numbers.contains(bonusNumber.getNumber());
     }
 

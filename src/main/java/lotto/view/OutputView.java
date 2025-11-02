@@ -22,6 +22,7 @@ public class OutputView {
     }
 
     public static void printWinningStatistics(Statistics statistics) {
+        System.out.println();
         System.out.println(WINNING_STATISTICS);
 
         for (WinningRank winningRank : WinningRank.values()) {
@@ -40,5 +41,4 @@ public class OutputView {
         double totalReturn = ((double) totalPrize / purchasePrice.getAmount()) * 100;
         System.out.printf(TOTAL_RETURN, totalReturn);
     }
-
 }

@@ -1,4 +1,4 @@
-package lotto;
+package lotto.error;
 
 public enum ErrorMessage {
     EMPTY_INPUT("[ERROR] 입력이 비어 있습니다."),

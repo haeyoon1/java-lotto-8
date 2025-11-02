@@ -28,7 +28,6 @@ public class Statistics {
         for (WinningRank winningRank : WinningRank.values()) {
             totalPrize += statistics.getCountof(winningRank) * winningRank.getPrize();
         }
-
         return totalPrize;
     }
 

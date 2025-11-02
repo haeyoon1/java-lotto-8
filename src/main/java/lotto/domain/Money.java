@@ -1,6 +1,6 @@
 package lotto.domain;
 
-import lotto.ErrorMessage;
+import lotto.error.ErrorMessage;
 
 public class Money {
 

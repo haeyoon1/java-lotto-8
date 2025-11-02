@@ -2,7 +2,7 @@ package lotto.util;
 
 import java.util.Arrays;
 import java.util.List;
-import lotto.ErrorMessage;
+import lotto.error.ErrorMessage;
 
 public class Parser {
 
@@ -23,5 +23,4 @@ public class Parser {
             throw new IllegalArgumentException(ErrorMessage.INVALID_LOTTO_NUMBER_FORMAT.getValue());
         }
     }
-
 }
