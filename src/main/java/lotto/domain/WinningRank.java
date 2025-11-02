@@ -1,6 +1,6 @@
 package lotto.domain;
 
-public enum Prize {
+public enum WinningRank {
     THREE_MATCH(3, 5000),
     FOUR_NATCH(4, 50000),
     FIVE_MATCH(5, 1500000),
@@ -10,7 +10,7 @@ public enum Prize {
     private final int matchCount;
     private final long prize;
 
-    Prize(int matchCount, long prize) {
+    WinningRank(int matchCount, long prize) {
         this.matchCount = matchCount;
         this.prize = prize;
     }
