@@ -27,10 +27,6 @@ public class Lotto {
         }
     }
 
-    public boolean contains(int number) {
-        return numbers.contains(number);
-    }
-
     public static Lotto generateLotto() {
         TreeSet<Integer> sortedLotto = new TreeSet<>(LottoGenerator.generateLotto());
         return new Lotto(new ArrayList<>(sortedLotto));
@@ -40,6 +36,10 @@ public class Lotto {
         return (int) numbers.stream()
             .filter(winningLotto::contains)
             .count();
+    }
+
+    public boolean contains(int number) {
+        return numbers.contains(number);
     }
 
     public boolean matchBonusLotto(BonusNumber bonusNumber) {
