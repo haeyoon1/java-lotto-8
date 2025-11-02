@@ -4,6 +4,8 @@ import lotto.ErrorMessage;
 
 public class Money {
 
+    private static final int LOTTO_PRICE = 1000;
+
     private final int amount;
 
     public Money(String inputAmount) {
@@ -15,14 +17,18 @@ public class Money {
     }
 
     private static void validateNumericString(String input) {
-        if (!input.matches("\\d+")){
+        if (!input.matches("\\d+")) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_INPUT_NUMBER_FORMAT.getValue());
         }
     }
 
     private static void validateMoneyUnit(int money) {
-        if (money % 1000 != 0){
+        if (money % LOTTO_PRICE != 0) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_MONEY_UNIT.getValue());
         }
+    }
+
+    public int getLottoCount() {
+        return amount / LOTTO_PRICE;
     }
 }
