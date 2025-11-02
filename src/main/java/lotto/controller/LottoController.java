@@ -3,14 +3,20 @@ package lotto.controller;
 import java.util.List;
 import lotto.domain.BonusNumber;
 import lotto.domain.Lotto;
+import lotto.domain.Lottos;
 import lotto.domain.Money;
-import lotto.Parser;
+import lotto.util.Parser;
 import lotto.view.InputView;
+import lotto.view.OutputView;
 
 public class LottoController {
 
     public void run() {
         Money money = readMoney();
+
+        int lottoCount = money.getLottoCount();
+        Lottos lottos = Lottos.generateLottos(lottoCount);
+        OutputView.printLottos(lottos);
 
         Lotto winningLotto = readLotto();
         BonusNumber bonusNumber = readBonusLottoNumber(winningLotto);

@@ -1,8 +1,11 @@
 package lotto.domain;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.TreeSet;
 import lotto.ErrorMessage;
+import lotto.util.LottoGenerator;
 
 public class Lotto {
 
@@ -26,5 +29,15 @@ public class Lotto {
 
     public boolean contains(int number) {
         return numbers.contains(number);
+    }
+
+    public static Lotto generateLotto() {
+        TreeSet<Integer> sortedLotto = new TreeSet<>(LottoGenerator.generateLotto());
+        return new Lotto(new ArrayList<>(sortedLotto));
+    }
+
+    @Override
+    public String toString() {
+        return numbers.toString();
     }
 }
