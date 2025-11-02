@@ -1,8 +1,8 @@
 package lotto.view;
 
-import java.util.Map;
 import lotto.domain.Lottos;
-import lotto.domain.Prize;
+import lotto.domain.Money;
+import lotto.domain.Statistics;
 
 public class OutputView {
 
@@ -14,18 +14,18 @@ public class OutputView {
 
 
     public static void printLottos(Lottos lottos) {
+        System.out.println();
         System.out.printf(LOTTO_PRINT_MESSAGE, lottos.size());
         System.out.println(lottos);
     }
 
-    public static void printWinningStatistics(Map<Prize, Integer> matchCount) {
+    public static void printWinningStatistics(Statistics matchCount) {
         System.out.println(WINNING_STATISTICS);
 
     }
 
-    public static void printTotalReturn(int totalPrize, int purchasePrice) {
-        System.out.printf(TOTAL_RETURN, (totalPrize / purchasePrice) * 100);
-
+    public static void printTotalReturn(Long totalPrize, Money purchasePrice) {
+        System.out.printf(TOTAL_RETURN, (totalPrize / purchasePrice.getAmount()) * 100);
     }
 
 }

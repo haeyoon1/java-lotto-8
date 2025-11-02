@@ -5,6 +5,7 @@ import lotto.domain.BonusNumber;
 import lotto.domain.Lotto;
 import lotto.domain.Lottos;
 import lotto.domain.Money;
+import lotto.domain.Statistics;
 import lotto.util.Parser;
 import lotto.view.InputView;
 import lotto.view.OutputView;
@@ -20,6 +21,11 @@ public class LottoController {
 
         Lotto winningLotto = readLotto();
         BonusNumber bonusNumber = readBonusLottoNumber(winningLotto);
+
+        Statistics matchCount = generateStatistics(lottos, bonusNumber, winningLotto);
+
+        Long totalPrize = Statistics.calculateTotalPrize(matchCount);
+        OutputView.printTotalReturn(totalPrize, money);
     }
 
     private Money readMoney() {
@@ -62,4 +68,9 @@ public class LottoController {
         }
     }
 
+    private Statistics generateStatistics(Lottos lottos, BonusNumber bonusNumber, Lotto winningLotto) {
+        Statistics statistics = new Statistics();
+
+        return statistics;
+    }
 }
