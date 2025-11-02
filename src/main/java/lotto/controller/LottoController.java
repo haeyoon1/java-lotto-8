@@ -25,6 +25,8 @@ public class LottoController {
         Statistics matchCount = generateStatistics(lottos, bonusNumber, winningLotto);
         OutputView.printWinningStatistics(matchCount);
 
+        Long totalPrize = Statistics.calculateTotalPrize(matchCount);
+        OutputView.printTotalReturn(totalPrize, money);
     }
 
     private Money readMoney() {

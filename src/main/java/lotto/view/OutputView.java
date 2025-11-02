@@ -11,7 +11,7 @@ public class OutputView {
     private static String WINNING_STATISTICS = "당첨 통계\n" + "---";
     private static String MATCH_RESULT_FORMAT = "%d개 일치 (%,d원) - %d개\n";
     private static String BONUS_MATCH_RESULT_FORMAT = "%d개 일치, 보너스 볼 일치 (%,d원) - %d개\n";
-    private static String TOTAL_RETURN = "총 수익률은 %.1f입니다.";
+    private static String TOTAL_RETURN = "총 수익률은 %.1f%%입니다.";
 
 
     public static void printLottos(Lottos lottos) {
@@ -24,11 +24,12 @@ public class OutputView {
     public static void printWinningStatistics(Statistics statistics) {
         System.out.println(WINNING_STATISTICS);
 
-        for (WinningRank winningRank: WinningRank.values()){
+        for (WinningRank winningRank : WinningRank.values()) {
             int count = statistics.getCountof(winningRank);
 
-            if (winningRank == WinningRank.FIVE_AND_BONUS_MATCH){
-                System.out.printf(BONUS_MATCH_RESULT_FORMAT, winningRank.getMatchCount(), winningRank.getPrize(), count);
+            if (winningRank == WinningRank.FIVE_AND_BONUS_MATCH) {
+                System.out.printf(BONUS_MATCH_RESULT_FORMAT, winningRank.getMatchCount(), winningRank.getPrize(),
+                    count);
                 continue;
             }
             System.out.printf(MATCH_RESULT_FORMAT, winningRank.getMatchCount(), winningRank.getPrize(), count);
@@ -36,7 +37,8 @@ public class OutputView {
     }
 
     public static void printTotalReturn(Long totalPrize, Money purchasePrice) {
-        System.out.printf(TOTAL_RETURN, (totalPrize / purchasePrice.getAmount()) * 100);
+        double totalReturn = ((double) totalPrize / purchasePrice.getAmount()) * 100;
+        System.out.printf(TOTAL_RETURN, totalReturn);
     }
 
 }
