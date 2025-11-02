@@ -14,4 +14,21 @@ public enum WinningRank {
         this.matchCount = matchCount;
         this.prize = prize;
     }
+
+    public static WinningRank findWinningRank(int matchCount, boolean isBonusMatch) {
+        if (matchCount == 3) return THREE_MATCH;
+        if (matchCount == 4) return FOUR_NATCH;
+        if ((matchCount == 5) && isBonusMatch) return FIVE_AND_BONUS_MATCH;
+        if (matchCount == 5) return FIVE_MATCH;
+        if (matchCount == 6) return SIX_MATCH;
+        return null;
+    }
+
+    public int getMatchCount() {
+        return matchCount;
+    }
+
+    public long getPrize() {
+        return prize;
+    }
 }

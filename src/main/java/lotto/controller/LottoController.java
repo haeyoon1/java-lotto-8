@@ -23,9 +23,8 @@ public class LottoController {
         BonusNumber bonusNumber = readBonusLottoNumber(winningLotto);
 
         Statistics matchCount = generateStatistics(lottos, bonusNumber, winningLotto);
+        OutputView.printWinningStatistics(matchCount);
 
-        Long totalPrize = Statistics.calculateTotalPrize(matchCount);
-        OutputView.printTotalReturn(totalPrize, money);
     }
 
     private Money readMoney() {
@@ -70,7 +69,13 @@ public class LottoController {
 
     private Statistics generateStatistics(Lottos lottos, BonusNumber bonusNumber, Lotto winningLotto) {
         Statistics statistics = new Statistics();
+        for (Lotto lotto : lottos.getLottos()) {
 
+            int matchCount = lotto.matchCount(winningLotto);
+            boolean isBonusMatch = lotto.matchBonusLotto(bonusNumber);
+
+            statistics.updateStatistics(matchCount, isBonusMatch);
+        }
         return statistics;
     }
 }

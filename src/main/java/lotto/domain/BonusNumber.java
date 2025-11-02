@@ -35,7 +35,9 @@ public class BonusNumber {
         if (winningNumbers.contains(number)) {
             throw new IllegalArgumentException(ErrorMessage.DUPLICATE_BONUS_LOTTO_NUMBER.getValue());
         }
-
     }
 
+    public int getNumber() {
+        return number;
+    }
 }

@@ -24,6 +24,10 @@ public class Lottos {
         return lottos.size();
     }
 
+    public List<Lotto> getLottos() {
+        return lottos;
+    }
+
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
