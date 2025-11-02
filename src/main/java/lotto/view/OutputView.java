@@ -7,10 +7,10 @@ import lotto.domain.WinningRank;
 
 public class OutputView {
 
-    private static String LOTTO_PRINT_MESSAGE = "%d개를 구매했습니다.\n";
-    private static String WINNING_STATISTICS = "당첨 통계\n" + "---";
-    private static String MATCH_RESULT_FORMAT = "%d개 일치 (%,d원) - %d개\n";
-    private static String BONUS_MATCH_RESULT_FORMAT = "%d개 일치, 보너스 볼 일치 (%,d원) - %d개\n";
+    private static String LOTTO_PRINT_MESSAGE = "%d개를 구매했습니다.%n";
+    private static String WINNING_STATISTICS = "당첨 통계%n---%n";
+    private static String MATCH_RESULT_FORMAT = "%d개 일치 (%,d원) - %d개%n";
+    private static String BONUS_MATCH_RESULT_FORMAT = "%d개 일치, 보너스 볼 일치 (%,d원) - %d개%n";
     private static String TOTAL_RETURN = "총 수익률은 %.1f%%입니다.";
 
 
@@ -23,7 +23,7 @@ public class OutputView {
 
     public static void printWinningStatistics(Statistics statistics) {
         System.out.println();
-        System.out.println(WINNING_STATISTICS);
+        System.out.printf(WINNING_STATISTICS);
 
         for (WinningRank winningRank : WinningRank.values()) {
             int count = statistics.getCountof(winningRank);
