@@ -6,7 +6,7 @@ import java.util.Map;
 public class Statistics {
 
     private static final int MIN_MATCH_COUNT = 3;
-    private Map<WinningRank, Integer> statistics = new HashMap<>();
+    private final Map<WinningRank, Integer> statistics = new HashMap<>();
 
     public Statistics() {
         for (WinningRank winningRank : WinningRank.values()) {
