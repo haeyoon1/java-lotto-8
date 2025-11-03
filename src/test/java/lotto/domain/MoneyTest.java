@@ -26,6 +26,14 @@ class MoneyTest {
     }
 
     @Test
+    @DisplayName("0 이하의 구입금액이 입력되면 예외가 발생한다.")
+    void 구입금액이_0_이하이면_예외가_발생한다() {
+        assertThatThrownBy(() -> new Money("0"))
+            .isInstanceOf(IllegalArgumentException.class)
+            .hasMessage(ErrorMessage.INVALID_MONEY_RANGE.getValue());
+    }
+
+    @Test
     @DisplayName("1000원 단위가 아닌 구입금액이 입력되면 예외가 발생한다.")
     void 구입금액의_단위가_1000원이_아니면_예외가_발생한다() {
         assertThatThrownBy(() -> new Money("5500"))
