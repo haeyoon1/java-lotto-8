@@ -11,7 +11,7 @@ public class Money {
     public Money(String inputAmount) {
         validateNumericString(inputAmount);
         int money = Integer.parseInt(inputAmount);
-        validateMoneyUnit(money);
+        validateMoneyAmount(money);
 
         this.amount = money;
     }
@@ -22,7 +22,10 @@ public class Money {
         }
     }
 
-    private static void validateMoneyUnit(int money) {
+    private static void validateMoneyAmount(int money) {
+        if (money <= 0) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_MONEY_RANGE.getValue());
+        }
         if (money % LOTTO_PRICE != 0) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_MONEY_UNIT.getValue());
         }
