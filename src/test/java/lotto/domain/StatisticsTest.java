@@ -53,7 +53,7 @@ class StatisticsTest {
         statistics.updateStatistics(5, false);
 
         long expectedPrize =
-            WinningRank.THREE_MATCH.getPrize() + WinningRank.FOUR_NATCH.getPrize() + WinningRank.FIVE_MATCH.getPrize();
+            WinningRank.THREE_MATCH.getPrize() + WinningRank.FOUR_MATCH.getPrize() + WinningRank.FIVE_MATCH.getPrize();
 
         // when
         long totalPrize = Statistics.calculateTotalPrize(statistics);
