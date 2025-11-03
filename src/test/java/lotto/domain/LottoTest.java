@@ -27,7 +27,7 @@ class LottoTest {
     void 유효한_6개의_로또_번호로_객체를_정상_생성한다() {
         Lotto lotto = new Lotto(List.of(1, 2, 3, 4, 5, 6));
 
-        assertThat(lotto.toString()).isEqualTo("[1,2,3,4,5,6]");
+        assertThat(lotto.toString()).isEqualTo("[1, 2, 3, 4, 5, 6]");
     }
 
     @DisplayName("당첨 번호와 일치하는 번호의 개수를 정확히 반환한다.")
